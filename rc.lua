@@ -353,18 +353,28 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end),
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end),
 
+    -- Lightscreen control
+    awful.key({ }, "#232",
+        function ()
+            os.execute("light -U 10")
+        end),
+    awful.key({ }, "#233",
+        function ()
+            os.execute("light -A 10")
+        end),
+
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
+    awful.key({ }, "#123",
         function ()
             os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end),
-    awful.key({ altkey }, "Down",
+    awful.key({ }, "#122",
         function ()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end),
-    awful.key({ altkey }, "m",
+    awful.key({ }, "#121",
         function ()
             os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
             beautiful.volume.update()
