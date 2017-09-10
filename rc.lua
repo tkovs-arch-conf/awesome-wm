@@ -56,6 +56,7 @@ local function run_once(cmd_arr)
 end
 
 run_once({ "unclutter -root" }) -- entries must be comma-separated
+run_once({ "compton -b" }) -- entries must be comma-separated
 -- }}}
 
 -- {{{ Variable definitions
