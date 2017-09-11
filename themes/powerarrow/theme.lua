@@ -14,6 +14,7 @@ local os, math, string = os, math, string
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow"
+theme.icon_theme                                = "Adwaita"
 theme.wallpaper                                 = theme.dir .. "/treehouse.jpg"
 theme.font                                      = "xos4 Terminus 9"
 theme.fg_normal                                 = "#FEFEFE"

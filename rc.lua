@@ -60,7 +60,12 @@ end
 
 run_once({ "unclutter -root" }) -- entries must be comma-separated
 run_once({ "compton -b" }) -- entries must be comma-separated
+run_once({ "thunar --daemon" }) -- entries must be comma-separated
 -- }}}
+
+for s in screen do
+    freedesktop.desktop.add_icons({screen = s})
+end
 
 -- {{{ Variable definitions
 local chosen_theme = "powerarrow"
@@ -356,6 +361,11 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey, }, "c", function () lain.widget.calendar.show(7) end),
     awful.key({ altkey, }, "h", function () if beautiful.fs then beautiful.fs.show(7) end end),
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end),
+
+    awful.key({ modkey }, "e",
+        function ()
+            os.execute("thunar")
+        end),
 
     -- Lightscreen control
     awful.key({ }, "#232",
